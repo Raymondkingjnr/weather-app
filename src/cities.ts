@@ -1,4 +1,3 @@
-// cities.ts
 import { City } from "./types";
 export const cities: City[] = [
   { name: "Tokyo", country: "Japan", lat: 35.6762, lng: 139.6503 },

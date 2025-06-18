@@ -28,8 +28,8 @@ const Sidebar = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 768px) {
-    width: calc(100% - 20px); /* Accounts for padding/margin */
-    margin: 0 auto; /* Centers horizontally */
+    width: calc(100% - 20px);
+    margin: 0 auto;
     height: 270px;
     padding: 20px;
   }
