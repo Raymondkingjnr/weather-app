@@ -1,0 +1,25 @@
+// cities.ts
+import { City } from "./types";
+export const cities: City[] = [
+  { name: "Tokyo", country: "Japan", lat: 35.6762, lng: 139.6503 },
+  { name: "New York", country: "USA", lat: 40.7128, lng: -74.006 },
+  { name: "London", country: "UK", lat: 51.5074, lng: -0.1278 },
+  { name: "Paris", country: "France", lat: 48.8566, lng: 2.3522 },
+  { name: "Sydney", country: "Australia", lat: -33.8688, lng: 151.2093 },
+  { name: "Rio de Janeiro", country: "Brazil", lat: -22.9068, lng: -43.1729 },
+  { name: "Cape Town", country: "South Africa", lat: -33.9249, lng: 18.4241 },
+  { name: "Moscow", country: "Russia", lat: 55.7558, lng: 37.6173 },
+  { name: "Dubai", country: "UAE", lat: 25.2048, lng: 55.2708 },
+  { name: "Toronto", country: "Canada", lat: 43.6532, lng: -79.3832 },
+  { name: "Beijing", country: "China", lat: 39.9042, lng: 116.4074 },
+  { name: "Mumbai", country: "India", lat: 19.076, lng: 72.8777 },
+  { name: "Bangkok", country: "Thailand", lat: 13.7563, lng: 100.5018 },
+  { name: "Istanbul", country: "Turkey", lat: 41.0082, lng: 28.9784 },
+  { name: "Mexico City", country: "Mexico", lat: 19.4326, lng: -99.1332 },
+  { name: "Berlin", country: "Germany", lat: 52.52, lng: 13.405 },
+  { name: "Rome", country: "Italy", lat: 41.9028, lng: 12.4964 },
+  { name: "Seoul", country: "South Korea", lat: 37.5665, lng: 126.978 },
+  { name: "Singapore", country: "Singapore", lat: 1.3521, lng: 103.8198 },
+  { name: "Cairo", country: "Egypt", lat: 30.0444, lng: 31.2357 },
+  { name: "Enugu", country: "Nigeria", lat: 6.4483, lng: 7.5139 },
+];
