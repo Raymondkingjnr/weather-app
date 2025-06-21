@@ -21,10 +21,12 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const MapWrapper = styled.div`
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 3;
 
   .leaflet-container {
     height: 100%;
-    width: 100vh;
+    width: 100%;
   }
 `;
 
@@ -69,17 +71,19 @@ function MapView({ selectedCity, cities }: MapViewProps) {
         {cities.map((city) => (
           <Marker
             key={`${city.name}-${city.country}`}
-            position={[city.lat, city.lng]}
-            ref={(ref) => {
+            position={[city.lat, city.lng] as [number, number]}
+            ref={(ref: L.Marker | null) => {
               if (ref) {
                 markerRefs.current[`${city.name}-${city.country}`] = ref;
               }
             }}
-            eventHandlers={{
-              click: () => {
-                setPopupInfo(city);
-              },
-            }}
+            eventHandlers={
+              {
+                click: () => {
+                  setPopupInfo(city);
+                },
+              } as L.LeafletEventHandlerFnMap
+            }
           >
             <Popup>
               <WeatherPopup city={city} />

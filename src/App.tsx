@@ -11,37 +11,39 @@ const AppContainer = styled.div`
   gap: 10px;
   height: 100vh;
   width: 100%;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
-  }
 `;
 
-const Sidebar = styled.div`
-  width: 300px;
-  background: #f8f9fa;
-  overflow-y: auto;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
+const Button = styled.button`
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  z-index: 200;
+  cursor: pointer;
+  background-color: #fff;
+  width: 130px;
+  border: none;
+  text-align: center;
+  height: 40px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: "Nunito";
+  color: #000;
 
-  @media (max-width: 768px) {
-    width: calc(100% - 20px);
-    margin: 0 auto;
-    height: 270px;
-    padding: 20px;
+  @media screen and (max-width: 785px) {
+    right: 0.6rem;
   }
 `;
 
 const MapContainer = styled.div`
-  flex: 1;
+  width: 100%;
+  position: relative;
 `;
 
 function App() {
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showCities, setShowCites] = useState(false);
 
   const filteredCities = useMemo(() => {
     return cities.filter((city) =>
@@ -49,18 +51,25 @@ function App() {
     );
   }, [searchTerm]);
 
+  const handCityCity = () => {
+    setShowCites((prev) => !prev);
+  };
+
   return (
     <AppContainer>
-      <Sidebar>
+      {showCities && (
         <CityList
           cities={filteredCities}
           onSelectCity={setSelectedCity}
+          onClose={handCityCity}
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
         />
-      </Sidebar>
+      )}
+
       <MapContainer>
         <MapView selectedCity={selectedCity} cities={filteredCities} />
+        <Button onClick={handCityCity}>Find City</Button>
       </MapContainer>
     </AppContainer>
   );
